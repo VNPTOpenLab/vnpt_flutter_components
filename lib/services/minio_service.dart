@@ -10,8 +10,7 @@ class MinIOUploadResult {
 }
 
 class MinIOService {
-  Future<MinIOUploadResult> uploadMultipleFiles(
-      List<String> files) async {
+  Future<MinIOUploadResult> uploadMultipleFiles(List<String> files) async {
     List<String> results = [];
     try {
       String endpoint = "";
@@ -27,8 +26,7 @@ class MinIOService {
           secretKey: secretKey,
           port: port,
           useSSL: useHTTPS,
-          region: 'vn'
-      );
+          region: 'vn');
 
       for (var f in files) {
         await minio.fPutObject(bucketName, FileUtils.getFileNameFromPath(f), f);
